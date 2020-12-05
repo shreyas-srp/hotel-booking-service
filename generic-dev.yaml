@@ -1,10 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: {{NAME_SPACE}}
-  name: booking-service-deployment
+  name: hotel-service-deployment
   labels:
-    app: booking-service
+    app: hotel-service
 spec:
   strategy:
     type: RollingUpdate
@@ -14,11 +13,11 @@ spec:
   revisionHistoryLimit: 5
   selector:
     matchLabels:
-      app: booking-service
+      app: hotel-service
   template:
     metadata:
       labels:
-        app: booking-service
+        app: hotel-service
         branch: master
     spec:
       affinity:
@@ -31,7 +30,7 @@ spec:
                 values:
                 - default
       containers:
-      - name: booking-service
+      - name: hotel-service
         image: 644506256020.dkr.ecr.ca-central-1.amazonaws.com/blerxprepo:latest-dev
         imagePullPolicy: Always
         resources:
@@ -61,10 +60,10 @@ kind: Service
 apiVersion: v1
 metadata:
     namespace: default
-    name: booking-service
+    name: hotel-service
 spec:
     selector:
-      app: booking-service
+      app: hotel-service
     ports:
     - protocol: TCP
       port: 80
