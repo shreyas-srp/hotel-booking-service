@@ -19,16 +19,6 @@ spec:
       labels:
         app: hotel-service
         branch: master
-    spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-            - matchExpressions:
-              - key: env
-                operator: In
-                values:
-                - default
       containers:
       - name: hotel-service
         image: 644506256020.dkr.ecr.ca-central-1.amazonaws.com/blerxprepo:latest-dev
