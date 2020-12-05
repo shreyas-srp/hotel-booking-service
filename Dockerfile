@@ -7,10 +7,13 @@ RUN ls
 RUN pwd
 
 COPY package.json /app
+
 COPY index.js /app
 COPY node_modules /app
 
-#RUN npm install
+RUN ls
+
+RUN npm install
 
 #COPY . /app
 
