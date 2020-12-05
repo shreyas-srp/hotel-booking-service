@@ -19,6 +19,7 @@ spec:
       labels:
         app: hotel-service
         branch: master
+    spec:
       containers:
       - name: hotel-service
         image: 644506256020.dkr.ecr.ca-central-1.amazonaws.com/blerxprepo:latest-dev
@@ -26,7 +27,7 @@ spec:
         resources:
           requests:
             cpu: 100m
-            memory: 100Mi
+            memory: 100Mi    
         ports:
           - containerPort: 80
             name: http
